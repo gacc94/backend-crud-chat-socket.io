@@ -21,7 +21,7 @@ yarn add -D typescript ts-node @types/node ts-node-dev
 ~~~
 ###  Dependencias y Dev-Dependencias del Proyecto:
 ~~~
-yarn add express socket.io cors dotenv
+yarn add express socket.io cors dotenv convict
 ~~~
 ~~~
 yarn add @types/cors @types/express -D nodemon
@@ -35,7 +35,7 @@ yarn add bufferutil utf-8-validate -D
 
 ###  Dependencias necesarias:
 ~~~
-yarn add cors morgan convict dotenv reflect-metadata express concurrently mongoose @typegoose/typegoose
+yarn add cors morgan  reflect-metadata express concurrently mongoose @typegoose/typegoose
 ~~~
 ~~~
 yarn add class-validator jsonwebtoken class-transformer bcrypt pg  typeorm typeorm-naming-strategies
