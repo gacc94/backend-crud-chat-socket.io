@@ -21,10 +21,10 @@ yarn add -D typescript ts-node @types/node ts-node-dev
 ~~~
 ###  Dependencias y Dev-Dependencias del Proyecto:
 ~~~
-yarn add express socket.io cors dotenv convict
+yarn add express socket.io cors dotenv convict morgan bcryptjs jsonwebtoken
 ~~~
 ~~~
-yarn add @types/cors @types/express -D nodemon
+yarn add @types/cors @types/express -D nodemon @types/morgan @types/bcryptjs @types/jsonwebtoken
 ~~~
 ###  Dependencias de Socket.io:
 ~~~
@@ -57,11 +57,11 @@ yarn add @prisma/client -D
 ~~~
 npx prisma init
 ~~~
-~~~
-npx prisma migrate dev
-~~~
 ~~~ 
 npx prisma generate
+~~~
+~~~
+npx prisma migrate dev
 ~~~
 ~~~
 npx prisma studio --port=5558

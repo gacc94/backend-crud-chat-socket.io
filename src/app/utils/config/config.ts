@@ -38,6 +38,29 @@ const config = convict({
             env: 'DATABASE_MONGO_URL',
         },
     },
+    auth: {
+        access_token: {
+            format: 'String',
+            default: '',
+            env: 'ACCESS_TOKEN_KEY'
+        },
+        refresh_token:{
+            format: 'String',
+            default: '',
+            env: 'REFRESH_TOKEN_KEY'
+        },
+        exp_access: {
+            format: 'String',
+            default: '',
+            env: 'ACCESS_TOKEN_EXPIRATION'
+        },
+        exp_refresh: {
+            format: 'String',
+            default: '',
+            env: 'REFRESH_TOKEN_EXPIRATION'
+        }
+
+    }
     //     name: {
     //         doc: 'Database name',
     //         format: String,
