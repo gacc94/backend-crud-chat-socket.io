@@ -60,6 +60,45 @@ export class UserController {
         }
     }
 
+    async updateUser(request: Request, response: Response) {
+        try {
+            const { id } = request.params;
+            const dataRequest = request.body ;
+            const user = await this.prisma.user.update({
+                where: { id: parseInt(id, 10) },
+                data: dataRequest
+            });
+            console.log('***************** ACTUALIZAR USUARIO ***************');
+            response.json(user).status(200).end();
+        } catch (err) {
+            if (err instanceof Error) {
+                response.json(err).status(404);
+                console.log(err.message);
+            }
+        }
+    }
+
+    async deleteUser(request: Request, response: Response) {
+        try {
+            const { id } = request.params;
+            const user = await this.prisma.user.delete({
+                where: { id: parseInt(id, 10) }
+            });
+
+            if (!user) {
+                response.status(401).json({ error: 'User does´t exist' });
+                return;
+            }
+
+            console.log('***************** ELIMINAR MENSAJE ***************');
+            response.json({ message: `Usuario con id ${id} fue eliminado` }).status(200);
+        }  catch (err) {
+            if (err instanceof Error) {
+                console.log(err.message);
+                response.json(err).status(404);
+            }
+        }
+    }
 }
 
 export default new UserController();

@@ -33,10 +33,16 @@ export const verifyRefreshToken = (token: string): any => {
 	}
 };
 
-export const getExpiredToken = (token: string) => {
-	const decoded = jwt.decode(token, { complete: true });
-	if (!decoded) return null;
+export const isExpiredAccessToken = (token: string) => {
+	const decode = jwt.decode(token);
+    console.log({ decode });
+	if (!decode) return null;
 
-	// const expiration = new Date(decoded.payload.exp * 1000);
-	// return expiration;
+    const { exp } = <JwtPayload>decode;
+	const expDate = new Date(exp as number).getTime();
+    const timestamp: number = Math.floor(Date.now() / 1000);
+
+    console.table({ expDate, timestamp });
+
+    return expDate <= timestamp;
 };
